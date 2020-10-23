@@ -1,3 +1,5 @@
+import os
+from flask import Flask, jsonify, request
 from math import sqrt
 
 app = Flask(__name__)
@@ -10,7 +12,7 @@ def fibonacci():
     b = 1
     fib = '0,'
 
-    for q in range (50):
+    for q in range (50): 
         fib += str(a) + ","
         b = b + a
         a = b - a
@@ -18,5 +20,5 @@ def fibonacci():
 
 
 if __name__ == "__main__":
-    port = int(    app.run(host='0.0.0.0', port=port)
-
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
